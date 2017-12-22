@@ -17,6 +17,7 @@ body {
     border-width: 30px 0px 3px 0px;
 }
 
+/* Panel de la izquierda (foto, nombre, etc) */
 .panel-left {
     width: 30%;
     margin: 10px;
@@ -24,6 +25,7 @@ body {
     float: left;
 }
 
+/* Panel de la derecha (tabs de información de la persona) */
 .panel-right {
     width: 70%;
     margin: 10px;
@@ -31,6 +33,7 @@ body {
     float: left;
 }
 
+/* Panel que encierra la foto */
 .panel-photo {
     width: 40%;
     margin: 10px auto;
@@ -39,16 +42,19 @@ body {
     background-color: white;
 }
 
+/* Estilo de la foto */
 .panel-photo img {
     width: 94%;
     margin: 3%;
     border-radius: 200px;
 }
 
+/* Nombre de la persona */
 .panel-name {
     margin: 10px;
 }
 
+/* Footer, con la información del máster y la UNIR */
 .panel-footer {
     margin: 10px;
     border-radius: 5px;
@@ -56,27 +62,33 @@ body {
     background-color: #F5F5F5;
 }
 
+/* Texto alineado a la izquiera */
 .text-left {
     text-align: left;
 }
 
+/* Texto alineado a la derecha */
 .text-right {
     text-align: right;
 }
 
+/* Texto centrado */
 .text-center {
     text-align: center;
 }
 
+/* Texto justificado */
 .text-justify {
     text-align: justify;
 }
 
+/* Contenedor de pestañas (tabs) */
 .panel-tabs {
     margin: 10px;
     background-color: white;
 }
 
+/* Contenido de cada tab */
 .tab-content {
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -84,6 +96,7 @@ body {
     padding: 10px 20px 30px 20px;
 }
 
+/* Para el <ul> de los tabs */
 .list-tabs {
     list-style-type: none;
     margin: 0;
@@ -92,10 +105,12 @@ body {
     background-color: white;
 }
 
+/* Para cada <li> de los tabs */
 .list-tabs li {
     float: left;
 }
 
+/* Para cada enlace <a> dentro del <li> de los tabs */
 .list-tabs li a {
     display: block;
     color: black;
@@ -104,10 +119,12 @@ body {
     text-decoration: none;
 }
 
+/* Al pasar el mouse sobre el tab */
 .list-tabs li a:hover {
     background-color: #FAFAFA;
 }
 
+/* Para el tab activo (sobre el cual se ha dado clic) */
 .tab-active {
     border-width: 2px 0px 0px 0px;
     border-style: solid;
@@ -120,6 +137,7 @@ body {
     border-color: #FAFAFA;
 }
 
+/* Para los tabs inactivos*/
 .tab-inactive {
     border-width: 0px;
 }
@@ -128,6 +146,7 @@ body {
     border-width: 0px;
 }
 
+/* Etiquetas <span> */
 .tag {
     margin: 10px 5px 10px 0px;
     padding: 0px 4px;
@@ -137,56 +156,68 @@ body {
     text-decoration: none;
 }
 
+/* Etiquetas de color verde */
 .tag-success {
     background-color: #009900;
 }
 
+/* Etiquetas de color azul */
 .tag-primary {
     background-color: #0099CC;
 }
 
+/* Etiquetas de color amarillo */
 .tag-warning {
     background-color: orange;
 }
 
+/* Etiquetas de color rojo */
 .tag-danger {
     background-color: red;
 }
 
+/* Línea de separador <hr/> */
 .separator {
     margin: 30px 10px 10px 10px;
     border: 1px dashed black;
 }
 
+/* Panel contenedor de tablas */
 .table-responsive {
     overflow-x: auto;
 }
 
+/* Tablas de la página */
 table {
     margin: 3%;
     width: 94%;
     border-collapse: collapse;
 }
 
+/* Encabezado de tabla */
 table th {
     margin: 20px;
     padding: 10px;
     background-color: #F2F2F2;
 }
 
+/* Columnas de las tablas */
 table td {
     margin: 10px 20px;
     padding: 10px;
 }
 
+/* Al pasar el mouse sobre una fila de una tabla */
 table tr:hover {
     background-color: #FAFAFA;
 }
 
+/* Color de fila de tabla intercalado (blanco, gris, blanco, etc) */
 tr:nth-child(even) {
     background-color: #FAFAFA;
 }
 
+/* Botones de la página */
 .btn {
     background-color: lightgray;
     border-radius: 5px;
@@ -196,6 +227,7 @@ tr:nth-child(even) {
     text-decoration: none;
 }
 
+/* El comentario o pensamiento de la persona */
 .say {
     background-color: lightgray;
     margin: 10px;
@@ -207,14 +239,17 @@ tr:nth-child(even) {
     padding: 10px;
 }
 
+/* Para la columna de fecha en la tabla de experiencia laboral */
 .date {
     min-width: 100px;
 }
 
+/* Para los iconos (fonts) que acompañan los enlaces, tags, botones */
 .icon {
     margin-right: 5px;
 }
 
+/* Panel del mapa */
 .map {
     overflow-x: auto;
     width: 100%;
