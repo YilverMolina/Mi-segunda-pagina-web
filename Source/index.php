@@ -24,7 +24,6 @@ $url_foto = "http://yilvermolinah.com/fotos/Foto_YilverMH.jpg";
 $comentario = "El éxito nunca llega solo; hay que trabajar arduamente para conseguirlo";
 
 $fnacimiento = '1996-10-28';
-$edad = 0;
 
 //Arreglo (multidimensional) de experiencia laboral
 $experiencia = array
@@ -39,34 +38,34 @@ $experiencia = array
 //arreglo (multidimensional) de formaciones académicas
 $formaciones = array(
     0 => array(
-        0 => "Ingeniería de Sistemas",
-        1 => "Universidad de la Amazonia, 2017",
-        2 => "Florencia, Caquetá, Colombia",
-        3 => "Finalizado",
+        "Titulo" => "Ingeniería de Sistemas",
+        "Institucion" => "Universidad de la Amazonia, 2017",
+        "Ciudad" => "Florencia, Caquetá, Colombia",
+        "Estado" => "Finalizado",
     ),
     1 => array(
-        0 => "Curso: VARIABLES Y ESTRUCTURAS DE CONTROL EN LA PROGRAMACIÓN ORIENTADA A OBJETOS",
-        1 => "Servicio Nacional de Aprendizaje SENA, 2012",
-        2 => "Florencia, Caquetá, Colombia",
-        3 => "Finalizado",
+        "Titulo" => "Curso: VARIABLES Y ESTRUCTURAS DE CONTROL EN LA PROGRAMACIÓN ORIENTADA A OBJETOS",
+        "Institucion" => "Servicio Nacional de Aprendizaje SENA, 2012",
+        "Ciudad" => "Florencia, Caquetá, Colombia",
+        "Estado" => "Finalizado",
     ),
     2 => array(
-        0 => "Diplomado: APRENDIZAJE EN INGLÉS: VOCABULARIO, ESTRUCTURA GRAMATICAL Y COMPRENSIÓN PARA LA PARTICIPACIÓN EN LAS MARATONES DE PROGRAMACIÓN NACIONALES",
-        1 => "Universidad de la Amazonia, 2016",
-        2 => "Florencia, Caquetá, Colombia",
-        3 => "Finalizado",
+        "Titulo" => "Diplomado: APRENDIZAJE EN INGLÉS: VOCABULARIO, ESTRUCTURA GRAMATICAL Y COMPRENSIÓN PARA LA PARTICIPACIÓN EN LAS MARATONES DE PROGRAMACIÓN NACIONALES",
+        "Institucion" => "Universidad de la Amazonia, 2016",
+        "Ciudad" => "Florencia, Caquetá, Colombia",
+        "Estado" => "Finalizado",
     ),
     3 => array(
-        0 => "Diplomado en Realidad aumentada y desarrollo de aplicaciones móviles",
-        1 => "Universidad de la Amazonia, 2017",
-        2 => "Florencia, Caquetá, Colombia",
-        3 => "Finalizado",
+        "Titulo" => "Diplomado en Realidad aumentada y desarrollo de aplicaciones móviles",
+        "Institucion" => "Universidad de la Amazonia, 2017",
+        "Ciudad" => "Florencia, Caquetá, Colombia",
+        "Estado" => "Finalizado",
     ),
     4 => array(
-        0 => "Master Universitario en Ingeniería de Software y Sistemas Informáticos",
-        1 => "Universidad Internacional de la Rioja, 2017",
-        2 => "La Rioja, España",
-        3 => "En curso",
+        "Titulo" => "Master Universitario en Ingeniería de Software y Sistemas Informáticos",
+        "Institucion" => "Universidad Internacional de la Rioja, 2017",
+        "Ciudad" => "La Rioja, España",
+        "Estado" => "En curso",
     ),
 );
 
@@ -135,14 +134,14 @@ function consultarHabilidades($habilidades)
 function consultarEstadoFormacion($estado)
 {
     $result = "";
-    switch ($estado) {
-        case "Finalizado":
+    switch (strtolower($estado)) {
+        case "finalizado":
             $result = "<span class='tag tag-success'>" . $estado . "</span>";
             break;
-        case "En curso":
+        case "en curso":
             $result = "<span class='tag tag-warning'>" . $estado . "</span>";
             break;
-        case "Cancelado":
+        case "cancelado":
             $result = "<span class='tag tag-danger'>" . $estado . "</span>";
             break;
     }
@@ -152,11 +151,11 @@ function consultarEstadoFormacion($estado)
 
 function consultarEstadoPublicacion($estado, $enlace)
 {
-    switch ($estado) {
-        case "Publicado":
+    switch (strtolower($estado)) {
+        case "publicado":
             echo "<br/><span class='tag tag-success'>" . $estado . "</span>";
             break;
-        case "En proceso":
+        case "en proceso":
             echo "<br/><span class='tag tag-warning'>" . $estado . "</span>";
             break;
     }
@@ -237,8 +236,8 @@ echo consultarHabilidades($habilidades);
                     <?php
 for ($row = 0; $row < count($formaciones); $row++) {
     echo "<li>";
-    echo $formaciones[$row][0] . ". <i>" . $formaciones[$row][1] . "</i>. " . $formaciones[$row][2] . ".";
-    echo "<br/>" . consultarEstadoFormacion($formaciones[$row][3]) . "<br/><br/>";
+    echo $formaciones[$row]["Titulo"] . ". <i>" . $formaciones[$row]["Institucion"] . "</i>. " . $formaciones[$row]["Ciudad"] . ".";
+    echo "<br/>" . consultarEstadoFormacion($formaciones[$row]["Estado"]) . "<br/><br/>";
     echo "</li>";
 }
 ?>
