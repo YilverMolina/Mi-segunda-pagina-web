@@ -43,35 +43,30 @@ $formaciones = array(
         1 => "Universidad de la Amazonia, 2017",
         2 => "Florencia, Caquetá, Colombia",
         3 => "Finalizado",
-        4 => "success",
     ),
     1 => array(
         0 => "Curso: VARIABLES Y ESTRUCTURAS DE CONTROL EN LA PROGRAMACIÓN ORIENTADA A OBJETOS",
         1 => "Servicio Nacional de Aprendizaje SENA, 2012",
         2 => "Florencia, Caquetá, Colombia",
         3 => "Finalizado",
-        4 => "success",
     ),
     2 => array(
         0 => "Diplomado: APRENDIZAJE EN INGLÉS: VOCABULARIO, ESTRUCTURA GRAMATICAL Y COMPRENSIÓN PARA LA PARTICIPACIÓN EN LAS MARATONES DE PROGRAMACIÓN NACIONALES",
         1 => "Universidad de la Amazonia, 2016",
         2 => "Florencia, Caquetá, Colombia",
         3 => "Finalizado",
-        4 => "success",
     ),
     3 => array(
         0 => "Diplomado en Realidad aumentada y desarrollo de aplicaciones móviles",
         1 => "Universidad de la Amazonia, 2017",
         2 => "Florencia, Caquetá, Colombia",
         3 => "Finalizado",
-        4 => "success",
     ),
     4 => array(
         0 => "Master Universitario en Ingeniería de Software y Sistemas Informáticos",
         1 => "Universidad Internacional de la Rioja, 2017",
         2 => "La Rioja, España",
         3 => "En curso",
-        4 => "warning",
     ),
 );
 
@@ -88,8 +83,8 @@ $publicaciones = array(
         0 => "Aquariam: Sistema de información para monitoreo de pH y temperatura en el laboratorio limnología.",
         1 => "Revista Ingenierías & Amazonia 2016 ",
         2 => "Universidad de la Amazonia, Florencia Caquetá Colombia.",
-        3 => "Publicado",
-        4 => "#",
+        3 => "En proceso",
+        4 => "",
     ),
     2 => array(
         0 => "Uso de la programación competitiva como aporte a la enseñanza de la Lógica Algorítmica. Experiencia Universidad de la Amazonia.",
@@ -135,6 +130,39 @@ function consultarHabilidades($habilidades)
         $i++;
     }
     return $result;
+}
+
+function consultarEstadoFormacion($estado)
+{
+    $result = "";
+    switch ($estado) {
+        case "Finalizado":
+            $result = "<span class='tag tag-success'>" . $estado . "</span>";
+            break;
+        case "En curso":
+            $result = "<span class='tag tag-warning'>" . $estado . "</span>";
+            break;
+        case "Cancelado":
+            $result = "<span class='tag tag-danger'>" . $estado . "</span>";
+            break;
+    }
+
+    return $result;
+}
+
+function consultarEstadoPublicacion($estado, $enlace)
+{
+    switch ($estado) {
+        case "Publicado":
+            echo "<br/><span class='tag tag-success'>" . $estado . "</span>";
+            break;
+        case "En proceso":
+            echo "<br/><span class='tag tag-warning'>" . $estado . "</span>";
+            break;
+    }
+    if (strlen($enlace) > 0) {
+        echo "<a class='tag tag-primary' href='" . $enlace . "' target='_blank'><i class='fa fa-file-pdf-o icon'></i>Ver artículo</a>";
+    }
 }
 
 ?>
@@ -210,7 +238,7 @@ echo consultarHabilidades($habilidades);
 for ($row = 0; $row < count($formaciones); $row++) {
     echo "<li>";
     echo $formaciones[$row][0] . ". <i>" . $formaciones[$row][1] . "</i>. " . $formaciones[$row][2] . ".";
-    echo "<br/><span class='tag tag-" . $formaciones[$row][4] . "'>" . $formaciones[$row][3] . "</span> <br/><br/>";
+    echo "<br/>" . consultarEstadoFormacion($formaciones[$row][3]) . "<br/><br/>";
     echo "</li>";
 }
 ?>
@@ -261,8 +289,7 @@ do {
     echo "<i><b>" . $publicaciones[$row][0] . "</b></i>";
     echo "<br/><br/><i class='fa fa-link icon'></i>" . $publicaciones[$row][1];
     echo "<br/><i class='fa fa-map-marker icon'></i>" . $publicaciones[$row][2];
-    echo "<br/><span class='tag tag-success'>" . $publicaciones[$row][3] . "</span>";
-    echo "<a class='tag tag-primary' href='" . $publicaciones[$row][4] . "' target='_blank'><i class='fa fa-file-pdf-o icon'></i>Ver artículo</a>";
+    consultarEstadoPublicacion($publicaciones[$row][3], $publicaciones[$row][4]);
     echo "<br/><br/>";
     echo "</li>";
     $row++;
